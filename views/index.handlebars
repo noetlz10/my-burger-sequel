@@ -8,7 +8,7 @@
           {{#unless this.devoured}}
             <div>
               <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+                <button type="submit" class='burgerAvailable'> {{this.name}}</button>
               </form>
             </div>
           {{/unless}}
@@ -20,7 +20,7 @@
           {{#if this.devoured}}
             <div class='burgerEaten'>
               <div>
-                {{this.burger_name}}
+                {{this.name}}
               </div>
             </div>
           {{/if}}
@@ -35,7 +35,7 @@
 <div class="row">
   <div class="col s12">
     <form action="/burgers" method="POST">
-      <input type="text" id="name" name="burger_name" placeholder="Delicious Burger">
+      <input type="text" id="name" name="name" placeholder="Delicious Burger">
       <button type="submit" class="addBurgerButton">Add The Burger</button>
     </form>
   </div>
