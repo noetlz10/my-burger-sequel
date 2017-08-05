@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     var Burger = sequelize.define("Burger", {
         //the name identifying the burger
         name: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false
         },
         //The availability boolean
