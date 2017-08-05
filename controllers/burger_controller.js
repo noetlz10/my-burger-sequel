@@ -1,16 +1,16 @@
 // Pull in the Burger Model
 var db = require("../models");
-var log = require("loglevel").getLogger("burgers_controller");
+var log = require("loglevel").getLogger("burger_controller");
 
 module.exports = function(app) {
     //Retrieve the list of burgers in the database
     app.get("/", function(req, res) {
         log.debug("___ENTER GET /___");
 
-        db.Burger.findAll()
+        db.Burgers.findAll()
             .then(function(data) {
                 var hbsObject = {
-                    burger: data
+                    burgers: data
                 };
                 console.log(hbsObject);
                 res.render('index', hbsObject);
@@ -22,10 +22,10 @@ module.exports = function(app) {
     });
 
     //Create a new burger entry
-    app.post("/burger", function(req, res) {
-        log.debug("___ENTER POST /burger___");
+    app.post("/burgers", function(req, res) {
+        log.debug("___ENTER POST /burgers___");
 
-        db.Burger.create(req.body)
+        db.Burgers.create(req.body)
             .then(function(burger) {
                 res.redirect("/");
             })
@@ -36,11 +36,11 @@ module.exports = function(app) {
     });
 
     // Update an existing burger entry
-    app.put("/burger/:id", function(req, res) {
-        log.debug("___ENTER PUT /burger:id___");
+    app.put("/burgers/:id", function(req, res) {
+        log.debug("___ENTER PUT /burgers:id___");
         log.debug("id = " + req.params.id);
 
-        db.Burger.update({ devoured: true }, {
+        db.Burgers.update({ devoured: true }, {
                 where: {
                     id: req.params.id
                 }
