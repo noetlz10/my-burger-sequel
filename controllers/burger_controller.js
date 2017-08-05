@@ -10,7 +10,7 @@ module.exports = function(app) {
         db.Burger.findAll()
             .then(function(data) {
                 var hbsObject = {
-                    burgers: data
+                    burger: data
                 };
                 console.log(hbsObject);
                 res.render('index', hbsObject);
@@ -22,8 +22,8 @@ module.exports = function(app) {
     });
 
     //Create a new burger entry
-    app.post("/burgers", function(req, res) {
-        log.debug("___ENTER POST /burgers___");
+    app.post("/burger", function(req, res) {
+        log.debug("___ENTER POST /burger___");
 
         db.Burger.create(req.body)
             .then(function(burger) {
@@ -36,8 +36,8 @@ module.exports = function(app) {
     });
 
     // Update an existing burger entry
-    app.put("/burgers/:id", function(req, res) {
-        log.debug("___ENTER PUT /burgers:id___");
+    app.put("/burger/:id", function(req, res) {
+        log.debug("___ENTER PUT /burger:id___");
         log.debug("id = " + req.params.id);
 
         db.Burger.update({ devoured: true }, {

@@ -41,12 +41,12 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Import routes and give the server access to them
-require('./controllers/burgers_controller.js')(app);
+require('./controllers/burger_controller.js')(app);
 
 //Syncing our sequelize models and then starting our express app
 db.sequelize.sync().then(function() {
     app.listen(port, function() {
-        console.log("My-burger-sequel is listening on PORT " + port);
+        console.log("my-burger-sequel is listening on PORT " + port);
 
     });
 });

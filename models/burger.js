@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     //Define the Burger Sequelize model
-    var Burger = sequelize.define("Burger", {
+    var Burger = sequelize.define("Burgers", {
         //the name identifying the burger
         name: {
             type: DataTypes.STRING,
